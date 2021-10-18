@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hfut.dao.FaceMapper">
+
+    <insert id="addFace" parameterType="Faces">
+        insert into face.faces (faceSex,faceAge,faceFile)
+        values (#{faceSex},#{faceAge},#{faceFile});
+    </insert>
+
+    <delete id="deleteFaceById" parameterType="int">
+        delete from face.faces where faceID=#{faceId}
+    </delete>
+
+    <update id="updateFace" parameterType="Faces">
+        update face.faces set faceAge=#{faceAge},faceSex=#{faceSex},faceFile=#{faceFile}
+        where faceID=#{faceID}
+    </update>
+
+    <select id="queryFaceById" resultType="Faces">
+        select * from face.faces
+        where faceID=#{faceId}
+    </select>
+
+    <select id="queryAllFace" resultType="Faces">
+        select * from face.faces
+    </select>
+
+
+
+</mapper>
